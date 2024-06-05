@@ -829,6 +829,26 @@
       </div>
     </section><!-- End Contact Section -->
 
+    <section id="quote" class="quote">
+    <div class="container" data-aos="fade-up">
+      <div class="section-header">
+        <h2>Inspirational Quote</h2>
+        <p id="quote-content">Loading inspirational quote...</p>
+        <h3 id="quote-author">...</h3>
+      </div>
+    </div>
+  </section><!-- End Quote Section -->
+
+  <!-- ======= Weather Section ======= -->
+  <section id="quote" class="quote">
+    <div class="container" data-aos="fade-up">
+      <div class="section-header">
+        <h2>Food</h2>
+        <p id="quote-content1">Loading inspirational food...</p>
+        <h3 id="quote-author1">...</h3>
+      </div>
+    </div>
+  </section>
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
@@ -913,6 +933,32 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script>
+  // Fetching and displaying weather information
+  fetch('https://www.themealdb.com/api/json/v1/1/random.php')
+    .then(response => response.json())
+    .then(data => {
+      const meal = data.meals[0];
+      document.getElementById('quote-content1').innerText = `Dish: ${meal.strMeal} - ${meal.strCategory}`;
+      document.getElementById('quote-author1').innerText = `Instructions: ${meal.strInstructions.substring(0, 100)}...`;
+    })
+    .catch(() => {
+      document.getElementById('quote-content1').innerText = 'Unable to retrieve food recipe at this time.';
+      document.getElementById('quote-author1').innerText = '';
+    });
+
+  // Fetching and displaying inspirational quotes
+  fetch('https://api.quotable.io/random')
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('quote-content').innerText = data.content;
+      document.getElementById('quote-author').innerText = `- ${data.author}`;
+    })
+    .catch(() => {
+      document.getElementById('quote-content').innerText = 'Unable to retrieve quote at this time.';
+      document.getElementById('quote-author').innerText = '';
+    });
+</script>
 
 </body>
 
