@@ -4,18 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class User extends Model
+class Supplier extends Model
 {
-    use HasFactory;
-    protected $table = 'user';
+    use HasFactory, SoftDeletes;
+    protected $table = 'supplier';
     protected $primaryKey = 'id';
     public $timestamps = false;
     public $incrementing = false;
 
     protected $fillable = [
-        'username', 'nama', 'email', 'password', 'tgllahir', 'member','saldo','role'
+        'nama', 'notlp', 'address'
     ];
 
-
+    protected $dates = ['deleted_at'];
 }
