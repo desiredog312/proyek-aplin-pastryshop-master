@@ -26,7 +26,6 @@
   <link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
 
-
   <!-- Template Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
@@ -53,17 +52,27 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="{{ url('/baker') }}">Home Baker</a></li>
-          <li><a href="{{ url('/baker/mastermenu') }}">Menu</a></li>
-          <li><a href="{{ url('/baker/mastersupplier') }}">Supplier</a></li>
-          <li><a href="{{ url('/baker/masteringredient') }}">Ingredient</a></li>
+          <li><a href="{{ url('/admin') }}">Home Admin</a></li>
+          <li><a href="{{ url('/admin/listuser') }}">List Customer</a></li>
+          <li class="dropdown"><a href="#"><span>List Employee</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+                <li><a href="{{ url('/admin/listbaker') }}">List Baker</a></li>
+                <li><a href="{{ url('/admin/listkaryawan') }}">List Karyawan</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#"><span>Register Employee</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+                <li><a href="{{ url('/admin/masterbaker') }}">Register Baker</a></li>
+                <li><a href="{{ url('/admin/masterkaryawan') }}">Register Karyawan</a></li>
+            </ul>
+          </li>
+          <li><a href="{{ url('/admin/penjualan') }}">penjualan</a></li>
         </ul>
       </nav><!-- .navbar -->
 
       <a class="btn-book-a-table" href="{{url("/logout")}}" style="background-color:#6D4404;">Logout</a>
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-
     </div>
   </header><!-- End Header -->
 
@@ -72,10 +81,8 @@
     <!-- ======= About Section ======= -->
     <section id="login" class="Login">
       <div class="container" data-aos="fade-up">
-    <br><br>
-        <h1>Welcome, Baker
-            <h1 style="color: #6D4404;"> {{ $user->username }}!</h1>
-        </h1>
+<br><br>
+        <h1>Welcome, Admin!</h1>
     <h4>klik navbar di atas untuk navigasi!</h4>
 
     @if (session('success'))
@@ -88,7 +95,6 @@
     </section><!-- End About Section -->
 
   <!-- ======= Footer ======= -->
-  <br><br><br><br>
   <footer id="footer" class="footer">
 
     <div class="container">
@@ -168,7 +174,6 @@
   <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
   <script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
   <script src="{{ asset('assets/js/main.js') }}"></script>
-
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
